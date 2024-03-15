@@ -1,0 +1,32 @@
+version: '3'
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mongodb
+    environment:
+      - DEVELOPMENT=True
+      - MONGODB_URL=mongodb://mongodb:27017/DokenFastapi
+      - MONGODB_URL_ONLINE=mongodb://mongodb:27017/DokenFastapi
+    
+    links:
+      - mongodb
+
+    volumes:
+      - ./:/usr/src/application:ro
+    command: uvicorn app:app --host 0.0.0.0 --port 8000 --reload
+
+
+  mongodb:
+    image: mongo:latest
+    ports:
+      - 27016:27017
+    volumes:
+      - data:/data/db
+    
+    command: mongod --bind_ip_all --logpath=/dev/null --quiet --logappend --setParameter logLevel=0 #To not include the mongodb log on the terminal
+
+volumes:
+  data:

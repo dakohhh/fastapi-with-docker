@@ -1,0 +1,14 @@
+*.pyc
+*.log
+.DS_Store
+.pytest_cache/
+test.ignore
+.gitignore
+__pycache__/
+
+.git
+.svn
+
+.vscode/
+.idea/
+*.sublime-*

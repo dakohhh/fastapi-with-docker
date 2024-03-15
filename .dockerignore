@@ -1,14 +1,29 @@
-*.pyc
-*.log
-.DS_Store
-.pytest_cache/
-test.ignore
-.gitignore
-__pycache__/
-
+# Git
 .git
-.svn
+.gitignore
+.github/
 
+# Virtualenv
+venv/
+.venv/
+.env
+.env-sample
+
+# Python
+*.pyc
+__pycache__
+
+# Django
+*.log
+*.db
+*.sqlite3
+
+# Visual Studio Code
 .vscode/
-.idea/
-*.sublime-*
+
+# Docker
+Dockerfile
+docker-compose.yaml
+
+# App
+README.md
